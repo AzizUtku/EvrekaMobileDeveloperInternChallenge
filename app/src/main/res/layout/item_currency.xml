@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/currencies_rlt_main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fff">
+
+
+    <RelativeLayout
+        android:id="@+id/currencies_rlt_middle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="5dp"
+        android:background="#5e8e3e"
+        android:elevation="2dp"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/currencies_txt_codes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/avenirnext_regular"
+            android:text="EUR/TRY"
+            android:textColor="#fbfdfa"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/currencies_txt_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:fontFamily="@font/avenirnext_regular"
+            android:text="Turkish Lira"
+            android:textColor="#fbfdfa"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/currencies_txt_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/currencies_txt_codes"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/avenirnext_medium"
+            android:text="6,0267"
+            android:textColor="#fbfdfa"
+            android:textSize="21sp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

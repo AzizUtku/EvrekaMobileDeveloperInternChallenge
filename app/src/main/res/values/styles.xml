@@ -1,11 +1,29 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!--For StartActivity-->
+    <style name="AppThemeStartActivity" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="colorPrimary">@color/colorPrimaryStart</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkStart</item>
+        <item name="colorAccent">@color/colorAccentStart</item>
+    </style>
+
+    <!--For Toolbar-->
+    <style name="ToolbarTheme" parent="@style/Base.ThemeOverlay.AppCompat.ActionBar">
+    </style>
+    <style name="ToolbarPopupTheme" parent="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <!--For BottomNavigationView-->
+    <style name="Widget.BottomNavigationView" parent="Widget.Design.BottomNavigationView">
+        <item name="fontFamily">@font/avenirnext_medium</item>
     </style>
 
 </resources>

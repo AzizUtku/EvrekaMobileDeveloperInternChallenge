@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_nav_currencies"
+        android:icon="@drawable/ic_currency"
+        android:title="@string/currencies"/>
+
+    <item
+        android:id="@+id/menu_nav_logs"
+        android:icon="@drawable/ic_log"
+        android:title="@string/logs"/>
+</menu>

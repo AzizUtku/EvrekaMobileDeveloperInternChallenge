@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Evreka - Mobile Challenge</string>
+    <string name="c_turkish">Türk Lirası</string>
+    <string name="c_us">ABD Doları</string>
+    <string name="c_british">İngiliz Sterlini</string>
+    <string name="c_canadian">Kanada Doları</string>
+    <string name="c_japanese">Japon Yeni</string>
+    <string name="c_russian">Rus Rublesi</string>
+    <string name="c_indian">Hindistan Rupisi</string>
+    <string name="c_swiss">İsviçre Frangı</string>
+    <string name="c_saudi">Suudi Arabistan Riyali</string>
+    <string name="c_ukrainian">Ukrayna Grivnası</string>
+    <string name="info_saved">Kaydedildi:</string>
+    <string name="seconds">saniye</string>
+    <string name="error">Hata</string>
+    <string name="currencies">Döviz</string>
+    <string name="logs">Loglar</string>
+    <string name="record_log">Log kaydet</string>
+    <string name="about">Hakkında</string>
+    <string name="remove">Kaldır</string>
+    <string name="add">Ekle</string>
+    <string name="okay">Tamam</string>
+    <string name="about_message">Geliştirici: Aziz Utku Kağıtcı\nTelefon: +905072672681\nEposta: azizutku@gmail.com\nVersion:</string>
+    <string name="edit_currencies">Düzenle</string>
+    <string name="no_log_file">Herhangi bir log dosyası mevcut değil!</string>
+    <string name="toolbar_title"> Döviz</string>
+    <string name="currency_list_empty">Döviz listeniz boş!</string>
+</resources>

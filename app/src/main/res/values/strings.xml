@@ -1,3 +1,33 @@
 <resources>
-    <string name="app_name">Evreka -  Mobile Challenge</string>
+    <string name="app_name">Evreka - Mobile Challenge</string>
+    <string name="developer_name" translatable="false">Aziz Utku Kağıtcı</string>
+    <string name="start_title" translatable="false">Evreka - Challenge</string>
+    <string name="cd_logo" translatable="false">Evreka Logo</string>
+    <string name="api_key" translatable="false">1a02aa0a9ac6903933a0ff1bfeb095ff</string>
+    <string name="c_turkish">Turkish Lira</string>
+    <string name="c_us">US Dollar</string>
+    <string name="c_british">British Pound</string>
+    <string name="c_canadian">Canadian Dollar</string>
+    <string name="c_japanese">Japanese Yen</string>
+    <string name="c_russian">Russian Ruble</string>
+    <string name="c_indian">Indian Rupee</string>
+    <string name="c_swiss">Swiss Franc</string>
+    <string name="c_saudi">Saudi Riyal</string>
+    <string name="c_ukrainian">Ukrainian Hryvnia</string>
+    <string name="info_saved">Saved:</string>
+    <string name="seconds">seconds</string>
+    <string name="error">Error</string>
+    <string name="currencies">Currencies</string>
+    <string name="logs">Logs</string>
+    <string name="record_log">Record log</string>
+    <string name="about">About</string>
+    <string name="remove">Remove</string>
+    <string name="add">Add</string>
+    <string name="okay">Okay</string>
+    <string name="about_message">Developer: Aziz Utku Kağıtcı\nPhone: +905072672681\nEmail: azizutku@gmail.com\nVersion:</string>
+    <string name="edit_currencies">Edit currencies</string>
+    <string name="no_log_file">You have not any log file</string>
+    <string name="toolbar_title"> Currencies</string>
+    <string name="currency_list_empty">Your currency list is empty!</string>
+
 </resources>

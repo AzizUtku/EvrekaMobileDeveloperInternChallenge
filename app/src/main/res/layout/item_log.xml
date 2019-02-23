@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/logs_rlt_main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fff"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/row_padding_vertical"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/row_padding_vertical">
+
+    <RelativeLayout
+        android:id="@+id/logs_rlt_ist_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true">
+
+        <TextView
+            android:id="@+id/logs_txt_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="15dp"
+            android:layout_toStartOf="@id/logs_img_arrow"
+            android:fontFamily="@font/avenirnext_regular"
+            android:text="143435355_log.txt"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/logs_txt_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/logs_txt_name"
+            android:layout_alignStart="@+id/logs_txt_name"
+            android:layout_marginTop="1dp"
+            android:layout_toStartOf="@id/logs_img_arrow"
+            android:fontFamily="@font/avenirnext_regular"
+            android:text="23.02.2019 14:09:44"
+            android:textColor="#8B000000"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/logs_txt_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/logs_txt_date"
+            android:layout_alignStart="@+id/logs_txt_name"
+            android:layout_marginTop="1dp"
+            android:layout_toStartOf="@id/logs_img_arrow"
+            android:fontFamily="@font/avenirnext_regular"
+            android:text="23 seconds"
+            android:textColor="#8B000000"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/logs_img_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            app:srcCompat="@drawable/ic_keyboard_arrow_right" />
+    </RelativeLayout>
+
+</RelativeLayout>

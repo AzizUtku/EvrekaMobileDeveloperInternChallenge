@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/app_main_toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentStart="true"
+    android:fitsSystemWindows="true"
+    android:background="@color/colorPrimary"
+    android:theme="@style/ToolbarTheme"
+    android:elevation="3dp">
+
+    <TextView
+        android:id="@+id/toolbar_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:ellipsize="end"
+        android:fontFamily="@font/avenirnext_medium"
+        android:gravity="center_vertical|start"
+        android:maxLines="1"
+        android:text="@string/toolbar_title"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+</android.support.v7.widget.Toolbar>

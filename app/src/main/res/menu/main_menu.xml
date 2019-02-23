@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_main_about"
+        android:title="@string/about"/>
+
+    <item
+        android:id="@+id/menu_main_log"
+        android:title="@string/record_log"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_record"
+        />
+</menu>
