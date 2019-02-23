@@ -12,11 +12,11 @@
     <string name="c_saudi">Suudi Arabistan Riyali</string>
     <string name="c_ukrainian">Ukrayna Grivnası</string>
     <string name="info_saved">Kaydedildi:</string>
-    <string name="seconds">saniye</string>
+    <string name="seconds">&#160;saniye</string>
     <string name="error">Hata</string>
     <string name="currencies">Döviz</string>
     <string name="logs">Loglar</string>
-    <string name="record_log">Log kaydet</string>
+    <string name="record_log">Log tut</string>
     <string name="about">Hakkında</string>
     <string name="remove">Kaldır</string>
     <string name="add">Ekle</string>
@@ -24,6 +24,7 @@
     <string name="about_message">Geliştirici: Aziz Utku Kağıtcı\nTelefon: +905072672681\nEposta: azizutku@gmail.com\nVersion:</string>
     <string name="edit_currencies">Düzenle</string>
     <string name="no_log_file">Herhangi bir log dosyası mevcut değil!</string>
-    <string name="toolbar_title"> Döviz</string>
+    <string name="toolbar_title">&#160;Döviz</string>
     <string name="currency_list_empty">Döviz listeniz boş!</string>
+    <string name="missing_write_permission">Log tutabilmek için izin vermelisiniz!</string>
 </resources>

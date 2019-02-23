@@ -1,16 +1,21 @@
 package com.azutka.evreka_mobilechallenge.fragments;
 
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.PorterDuff;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.FileProvider;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
@@ -23,6 +28,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.azutka.evreka_mobilechallenge.EditCurrencies;
 import com.azutka.evreka_mobilechallenge.MainActivity;
@@ -40,6 +46,8 @@ import com.azutka.evreka_mobilechallenge.utils.Constants;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -93,6 +101,7 @@ public class CurrenciesFragment extends Fragment {
 
     private boolean isRecording = false;
     private String mDate;
+    private MenuItem mMenuItem;
 
     public CurrenciesFragment() {
         // Required empty public constructor
@@ -252,32 +261,38 @@ public class CurrenciesFragment extends Fragment {
 
     private void startRecording(final MenuItem menuItem){
 
-        startedTimeStamp = System.currentTimeMillis();
-        isRecording = true;
-        menuItem.setIcon(getActivity().getDrawable(R.drawable.ic_stop));
-        final boolean[] isRed = {false};
+        if(getContext().checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 100);
+            mMenuItem = menuItem;
+        } else {
+            startedTimeStamp = System.currentTimeMillis();
+            isRecording = true;
+            menuItem.setIcon(getActivity().getDrawable(R.drawable.ic_stop));
+            final boolean[] isRed = {false};
 
-        getData();
+            getData();
 
-        mRunnableForIcon = new Runnable(){
-            @Override
-            public void run() {
+            mRunnableForIcon = new Runnable(){
+                @Override
+                public void run() {
 
-                if(!isRed[0]){
-                    menuItem.getIcon().setColorFilter(ContextCompat.getColor(getContext(), R.color.colorDarkRed),
-                            PorterDuff.Mode.MULTIPLY);
-                    isRed[0] = true;
-                } else {
-                    menuItem.getIcon().setColorFilter(ContextCompat.getColor(getContext(), R.color.colorWhite),
-                            PorterDuff.Mode.MULTIPLY);
-                    isRed[0] = false;
+                    if(!isRed[0]){
+                        menuItem.getIcon().setColorFilter(ContextCompat.getColor(getContext(), R.color.colorDarkRed),
+                                PorterDuff.Mode.MULTIPLY);
+                        isRed[0] = true;
+                    } else {
+                        menuItem.getIcon().setColorFilter(ContextCompat.getColor(getContext(), R.color.colorWhite),
+                                PorterDuff.Mode.MULTIPLY);
+                        isRed[0] = false;
+                    }
+                    mHandlerForIcon.postDelayed(this, 1000);
                 }
-                mHandlerForIcon.postDelayed(this, 1000);
-            }
 
-        };
+            };
 
-        mHandlerForIcon.postDelayed(mRunnableForIcon, 1000);
+            mHandlerForIcon.postDelayed(mRunnableForIcon, 1000);
+        }
+
 
 
 
@@ -299,30 +314,25 @@ public class CurrenciesFragment extends Fragment {
     private void saveLog(){
         long timestamp = System.currentTimeMillis() / 1000;
         String name = String.valueOf(timestamp) + "_log.txt";
-        String path = Environment.getExternalStorageDirectory() + "/" + name;
+        String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + name;
         String duration = String.valueOf( (timestamp*1000 - startedTimeStamp) / 1000) + getString(R.string.seconds);
-        File fileLog = new File(path);
-        if (!fileLog.exists()) {
-            try {
-                fileLog.createNewFile();
-            }
-            catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+
+
+        File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), name);
+        FileOutputStream fileOutputStream = null;
         try {
-            BufferedWriter buf = new BufferedWriter(new FileWriter(fileLog, true));
-            buf.append(mSBLog.toString());
-            buf.close();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
 
-        MainActivity.databaseHelper.insertLog(new CurrencyLog(name ,path, duration, mDate, String.valueOf((timestamp))));
+            fileOutputStream = new FileOutputStream(file);
+            fileOutputStream.write(mSBLog.toString().getBytes());
+            fileOutputStream.close();
 
-        Snackbar snackbar = Snackbar.make(recycler,getString(R.string.info_saved) + path, Snackbar.LENGTH_LONG);
-        snackbar.show();
+            MainActivity.databaseHelper.insertLog(new CurrencyLog(name ,path, duration, mDate, String.valueOf((timestamp))));
+            Snackbar snackbar = Snackbar.make(recycler,getString(R.string.info_saved) + path, Snackbar.LENGTH_LONG);
+            snackbar.show();
+
+        } catch(Exception e){
+            Log.e(TAG, "saveLog: ", e );
+        }
     }
 
     @Override
@@ -352,7 +362,20 @@ public class CurrenciesFragment extends Fragment {
 
 
         } catch (Exception e){
+            Log.e(TAG, "onCreateOptionsMenu: ",e );
+        }
+    }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case 100:
+                if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    startRecording(mMenuItem);
+                } else {
+                    Snackbar snackbar = Snackbar.make(recycler, R.string.missing_write_permission, Snackbar.LENGTH_LONG);
+                    snackbar.show();
+                }
         }
     }
 

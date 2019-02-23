@@ -1,11 +1,16 @@
 package com.azutka.evreka_mobilechallenge.fragments;
 
 
+import android.app.AlertDialog;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -18,6 +23,7 @@ import com.azutka.evreka_mobilechallenge.database.DatabaseHelper;
 import com.azutka.evreka_mobilechallenge.interfaces.OnDatabaseUpdatedListener;
 import com.azutka.evreka_mobilechallenge.models.CurrencyLog;
 import com.azutka.evreka_mobilechallenge.models.Rate;
+import com.azutka.evreka_mobilechallenge.utils.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +48,7 @@ public class LogsFragment extends Fragment {
 
     public LogsFragment() {
         // Required empty public constructor
+        setHasOptionsMenu(true);
     }
 
 
@@ -71,6 +78,8 @@ public class LogsFragment extends Fragment {
         return mView;
     }
 
+
+
     private void updateRecycler(){
         if(mLogs.size() > 0){
             txtInfo.setVisibility(View.GONE);
@@ -88,5 +97,7 @@ public class LogsFragment extends Fragment {
         super.onDestroyView();
         unbinder.unbind();
     }
+
+
 
 }

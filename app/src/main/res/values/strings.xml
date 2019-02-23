@@ -3,7 +3,7 @@
     <string name="developer_name" translatable="false">Aziz Utku Kağıtcı</string>
     <string name="start_title" translatable="false">Evreka - Challenge</string>
     <string name="cd_logo" translatable="false">Evreka Logo</string>
-    <string name="api_key" translatable="false">1a02aa0a9ac6903933a0ff1bfeb095ff</string>
+    <string name="api_key" translatable="false">80251c8696a305eda107b2b4223c3f71</string>
     <string name="c_turkish">Turkish Lira</string>
     <string name="c_us">US Dollar</string>
     <string name="c_british">British Pound</string>
@@ -15,7 +15,7 @@
     <string name="c_saudi">Saudi Riyal</string>
     <string name="c_ukrainian">Ukrainian Hryvnia</string>
     <string name="info_saved">Saved:</string>
-    <string name="seconds">seconds</string>
+    <string name="seconds">&#160;seconds</string>
     <string name="error">Error</string>
     <string name="currencies">Currencies</string>
     <string name="logs">Logs</string>
@@ -27,7 +27,8 @@
     <string name="about_message">Developer: Aziz Utku Kağıtcı\nPhone: +905072672681\nEmail: azizutku@gmail.com\nVersion:</string>
     <string name="edit_currencies">Edit currencies</string>
     <string name="no_log_file">You have not any log file</string>
-    <string name="toolbar_title"> Currencies</string>
+    <string name="toolbar_title">&#160;Currencies</string>
     <string name="currency_list_empty">Your currency list is empty!</string>
+    <string name="missing_write_permission">You should give permission to record log!</string>
 
 </resources>

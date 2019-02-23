@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.v4.content.FileProvider;
 import android.support.v7.widget.RecyclerView;
@@ -95,8 +96,12 @@ public class LogAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         public void onButtonClick(View view) {
             try {
                 File file = new File(mPath);
+
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setDataAndType(Uri.fromFile(file), "text/plain");
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                Uri apkURI = FileProvider.getUriForFile(mContext,mContext.getPackageName() + ".provider", file);
+                intent.setDataAndType(apkURI, "text/*");
+                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 mContext.startActivity(intent);
             } catch (Exception e) {
                 Log.e(TAG, "onButtonClick: ", e );

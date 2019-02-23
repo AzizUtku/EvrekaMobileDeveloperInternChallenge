@@ -7,9 +7,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.view.menu.ActionMenuItemView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.azutka.evreka_mobilechallenge.database.DatabaseHelper;
 import com.azutka.evreka_mobilechallenge.fragments.CurrenciesFragment;
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.main_bottom_nav)
     BottomNavigationView bottomNav;
+
 
     private Fragment mCurrentFragment;
 
