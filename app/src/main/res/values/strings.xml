@@ -30,5 +30,11 @@
     <string name="toolbar_title">&#160;Currencies</string>
     <string name="currency_list_empty">Your currency list is empty!</string>
     <string name="missing_write_permission">You should give permission to record log!</string>
+    <string name="connection_needed">Internet connection is needed!</string>
+    <string name="no_connection">No connection</string>
+    <string name="close">Exit</string>
+    <string name="exceeded_quota">API request quota exceeded. Try again later!</string>
+    <string name="connection_error">Cannot connect to server. Try again later!</string>
+    <string name="api_problem">API Problem</string>
 
 </resources>

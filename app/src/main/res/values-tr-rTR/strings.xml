@@ -27,4 +27,10 @@
     <string name="toolbar_title">&#160;Döviz</string>
     <string name="currency_list_empty">Döviz listeniz boş!</string>
     <string name="missing_write_permission">Log tutabilmek için izin vermelisiniz!</string>
+    <string name="connection_needed">İnternet bağlantısı gerekli!</string>
+    <string name="no_connection">Bağlantı yok</string>
+    <string name="close">Çık</string>
+    <string name="exceeded_quota">API istek kotası doldu. Lütfen daha sonra tekrar deneyin!</string>
+    <string name="connection_error">Sunucuya bağlanılamıyor. Lütfen daha sonra tekrar deneyin!</string>
+    <string name="api_problem">API Sorunu</string>
 </resources>

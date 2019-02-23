@@ -38,26 +38,23 @@ public class StartActivity extends AppCompatActivity {
 
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 
-        do {
-            NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-            if(networkInfo != null && networkInfo.isConnectedOrConnecting()){
-                mIsConnected = true;
-                getData();
-            } else {
-                AlertDialog.Builder dialogAbout = new AlertDialog.Builder(this);
-                dialogAbout.setCancelable(false);
-                dialogAbout.setTitle("No connection");
-                dialogAbout.setMessage("Internet connection is needed!");
-                dialogAbout.setPositiveButton("Try again", null);
-                dialogAbout.setNegativeButton("Close", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish();
-                    }
-                });
-                dialogAbout.show();
-            }
-        } while(!mIsConnected);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+        if(networkInfo != null && networkInfo.isConnectedOrConnecting()){
+            mIsConnected = true;
+            getData();
+        } else {
+            AlertDialog.Builder dialogAbout = new AlertDialog.Builder(this);
+            dialogAbout.setCancelable(false);
+            dialogAbout.setTitle(R.string.no_connection);
+            dialogAbout.setMessage(R.string.connection_needed);
+            dialogAbout.setNegativeButton(R.string.close, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                }
+            });
+            dialogAbout.show();
+        }
 
 
     }
@@ -79,7 +76,7 @@ public class StartActivity extends AppCompatActivity {
                     rateRest = response.body().getRates();
 
                     if(rateRest == null){
-                        showAPIError("API request quota exceeded! Try again later!");
+                        showAPIError(getString(R.string.exceeded_quota));
                     } else {
 
                         Log.i(TAG, "onResponse: " + rateRest.toString());
@@ -96,7 +93,7 @@ public class StartActivity extends AppCompatActivity {
 
                 } else {
 
-                    showAPIError("Cannot connect to server. Try again later!");
+                    showAPIError(getString(R.string.connection_error));
 
                 }
             }
@@ -112,9 +109,9 @@ public class StartActivity extends AppCompatActivity {
     private void showAPIError(String message){
         AlertDialog.Builder dialogError = new AlertDialog.Builder(StartActivity.this);
         dialogError.setCancelable(false);
-        dialogError.setTitle("API Problem");
+        dialogError.setTitle(R.string.api_problem);
         dialogError.setMessage(message);
-        dialogError.setPositiveButton("Close", new DialogInterface.OnClickListener() {
+        dialogError.setPositiveButton(R.string.close, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 finish();
