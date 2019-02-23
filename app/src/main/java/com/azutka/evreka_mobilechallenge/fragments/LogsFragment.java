@@ -93,6 +93,20 @@ public class LogsFragment extends Fragment {
     }
 
     @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+
+        try {
+            MenuItem menuItemSearch = menu.findItem(R.id.menu_main_log);
+            menuItemSearch.setVisible(false);
+
+        } catch (Exception e){
+
+        }
+    }
+
+
+    @Override
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
