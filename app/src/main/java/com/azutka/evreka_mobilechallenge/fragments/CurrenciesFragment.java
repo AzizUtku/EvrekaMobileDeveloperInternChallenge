@@ -235,7 +235,7 @@ public class CurrenciesFragment extends Fragment {
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss", Locale.getDefault());
         mDate = sdf.format(new Date());
 
-        Call<CurrencyRest> call = apiService.getTopRatedMovies(api_key,"TRY,USD,GBP,CAD,JPY,RUB,INR,CHF,SAR,UAH","EUR");
+        Call<CurrencyRest> call = apiService.getCurrencies(api_key,"TRY,USD,GBP,CAD,JPY,RUB,INR,CHF,SAR,UAH","EUR");
         call.enqueue(new Callback<CurrencyRest>() {
             @Override
             public void onResponse(Call<CurrencyRest> call, Response<CurrencyRest> response) {

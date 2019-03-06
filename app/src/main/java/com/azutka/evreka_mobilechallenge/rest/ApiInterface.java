@@ -9,6 +9,6 @@ import retrofit2.http.Query;
 
 public interface ApiInterface {
     @GET("latest")
-    Call<CurrencyRest> getTopRatedMovies(@Query("access_key") String apiKey, @Query("symbols") String symbols, @Query("base") String base);
+    Call<CurrencyRest> getCurrencies(@Query("access_key") String apiKey, @Query("symbols") String symbols, @Query("base") String base);
 
 }
