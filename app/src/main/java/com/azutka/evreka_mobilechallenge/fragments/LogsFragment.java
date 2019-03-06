@@ -97,8 +97,8 @@ public class LogsFragment extends Fragment {
         super.onCreateOptionsMenu(menu, inflater);
 
         try {
-            MenuItem menuItemSearch = menu.findItem(R.id.menu_main_log);
-            menuItemSearch.setVisible(false);
+            MenuItem menuItem = menu.findItem(R.id.menu_main_log);
+            menuItem.setVisible(false);
 
         } catch (Exception e){
 

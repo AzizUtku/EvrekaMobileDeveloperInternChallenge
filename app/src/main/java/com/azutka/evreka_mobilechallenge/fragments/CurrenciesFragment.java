@@ -346,9 +346,9 @@ public class CurrenciesFragment extends Fragment {
         super.onCreateOptionsMenu(menu, inflater);
 
         try {
-            MenuItem menuItemSearch = menu.findItem(R.id.menu_main_log);
+            MenuItem menuItem = menu.findItem(R.id.menu_main_log);
 
-            menuItemSearch.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            menuItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem menuItem) {
                     if(isRecording) {
